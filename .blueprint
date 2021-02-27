@@ -1,0 +1,31 @@
+created:
+    - app/Http/Controllers/MovieController.php
+    - app/Http/Controllers/CommentController.php
+    - database/factories/MovieFactory.php
+    - database/factories/CommentFactory.php
+    - database/migrations/2021_02_26_175135_create_movies_table.php
+    - database/migrations/2021_02_26_175136_create_comments_table.php
+    - app/Models/Movie.php
+    - app/Models/Comment.php
+    - database/seeders/MovieSeeder.php
+    - database/seeders/CommentSeeder.php
+    - tests/Feature/Http/Controllers/MovieControllerTest.php
+    - tests/Feature/Http/Controllers/CommentControllerTest.php
+    - app/Http/Requests/MovieStoreRequest.php
+    - app/Http/Requests/MovieUpdateRequest.php
+    - app/Http/Requests/CommentStoreRequest.php
+    - app/Http/Requests/CommentUpdateRequest.php
+    - resources/views/movie/index.blade.php
+    - resources/views/movie/create.blade.php
+    - resources/views/movie/show.blade.php
+    - resources/views/movie/edit.blade.php
+    - resources/views/comment/index.blade.php
+    - resources/views/comment/create.blade.php
+    - resources/views/comment/show.blade.php
+    - resources/views/comment/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Models\User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string nullable' }
+    Movie: { image: 'string:100', title: 'string:100', description: 'string:500', relationships: { hasMany: Comment } }
+    Comment: { content: 'string:300', movie_id: foreign, user_id: foreign, relationships: { belongsTo: 'Movie, User' } }

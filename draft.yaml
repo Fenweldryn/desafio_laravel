@@ -1,0 +1,23 @@
+models:
+  Movie:
+    image: string:100
+    title: string:100
+    description: string:500
+    relationships:
+      hasMany: Comment
+
+  Comment:
+    content: string:300    
+    movie_id: foreign
+    user_id: foreign
+    relationships:
+      belongsTo: Movie, User
+
+controllers:
+  Movie:
+    resource
+  
+  Comment:
+    resource
+
+seeders: Movie, Comment
